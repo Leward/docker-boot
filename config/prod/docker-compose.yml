@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  docker-boot:
+    image: leward/docker-boot
+    ports:
+      - "8080:8080"
+    configs:
+      - source: application-dev-properties
+        target: /usr/local/tomcat/application.properties
+    deploy:
+      replicas: 2
+
+configs:
+  application-dev-properties:
+    file: ./application.properties
